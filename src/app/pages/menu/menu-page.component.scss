@@ -1,0 +1,45 @@
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  background: rgba(254, 253, 251, 0.9);
+  box-shadow: 0 2px 8px rgba(44, 40, 32, 0.1);
+  margin-bottom: 32px;
+}
+
+.menu-tab {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.menu-tab:hover {
+  color: var(--text);
+  background: rgba(var(--accent-rgb), 0.04);
+  border-color: rgba(var(--accent-rgb), 0.15);
+}
+
+.menu-tab.is-active {
+  background: rgba(var(--accent-rgb), 0.08);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.menu-panels {
+  position: relative;
+  min-height: 400px;
+}

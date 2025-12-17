@@ -1,0 +1,71 @@
+<section class="hero hero--fullscreen">
+  <div class="hero__slider">
+    <div
+      class="hero__slide"
+      *ngFor="let slide of gallerySlides; let i = index"
+      [class.is-active]="i === currentSlide"
+      [style.backgroundImage]="'url(' + slide.image + ')'"
+      aria-hidden="true"
+    ></div>
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="container hero__content">
+    <div class="hero__text">
+      <p class="eyebrow">Dal 1884</p>
+      <h1>Benvenuti!</h1>
+      <p class="lead">
+        L'incantevole atmosfera del nostro locale e la bellezza del borgo di Ostia Antica rendono il Ristorante Monumento un luogo incomparabile per organizzare eventi e feste private. Scegli la nostra location per un'esperienza unica e indimenticabile.
+      </p>
+      <div class="chips">
+        <span class="chip">Borgo di Ostia Antica</span>
+        <span class="chip">Mare &amp; Terra</span>
+        <span class="chip">Cantina storica</span>
+      </div>
+      <div class="hero__actions">
+        <a class="btn primary" routerLink="/prenota">Prenota un tavolo</a>
+        <a class="btn ghost" routerLink="/menu">Vai al menù</a>
+      </div>
+    </div>
+
+    <div class="hero__caption-wrapper">
+      <div class="hero__caption" *ngFor="let slide of gallerySlides; let i = index" [class.is-active]="i === currentSlide">
+        <div class="caption__ornament caption__ornament--top"></div>
+        <h3 class="caption__title">{{ slide.title }}</h3>
+        <p class="caption__text">{{ slide.caption }}</p>
+        <div class="caption__ornament caption__ornament--bottom"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2>Pronti ad Accoglierti Ogni Giorno, a Pranzo e a Cena!</h2>
+      <p class="muted" style="max-width: 800px; margin-top: 16px;">
+        Delizia il tuo palato con la freschezza del nostro pesce e cruditè, la succulenta carne, la pasta artigianale preparata con cura e i celebri cappelletti romagnoli, un'autentica prelibatezza della nostra tradizione gastronomica.
+      </p>
+    </div>
+    <div class="card-grid card-grid--two">
+      <article class="card card--image">
+        <div class="card__image card__image--top" style="background-image: url('assets/chi_siamo.webp');"></div>
+        <div class="card__content">
+          <h3 class="card__title">Chi Siamo</h3>
+          <p class="muted">
+            L'attuale gestione del Ristorante Monumento continua con dedizione la tradizione culinaria intrapresa fin dal 1884. Rivisitiamo con passione l'eredità delle ricette storiche di mamma Nerina, garantendo un'esperienza gastronomica autentica e appagante.
+          </p>
+        </div>
+      </article>
+      <article class="card card--image">
+        <div class="card__image" style="background-image: url('assets/dove_siamo.webp');"></div>
+        <div class="card__content">
+          <h3 class="card__title">Dove Siamo</h3>
+          <p class="muted">
+            Concludete la vostra esperienza tra le antiche rovine di Ostia Antica con una visita da noi. Vi aspettiamo per deliziarvi con la nostra cucina dopo il vostro viaggio nel passato.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

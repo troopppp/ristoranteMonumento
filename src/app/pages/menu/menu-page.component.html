@@ -1,0 +1,84 @@
+<section class="hero">
+  <div class="container hero__layout">
+    <div class="hero__text">
+      <p class="eyebrow">Menù</p>
+      <h1>Carta di mare e terra</h1>
+      <p class="lead">
+        Cinque schede per raccontare il Ristorante Monumento: Mare, Terra, Contorni, Dolci e Caffè.
+        Proposte che cambiano seguendo il mercato, il pescato e gli aromi del borgo di Ostia Antica.
+      </p>
+      <div class="chips">
+        <span class="chip">Dal 1884</span>
+        <span class="chip">Borgo di Ostia Antica</span>
+        <span class="chip">Cucina variegata</span>
+      </div>
+    </div>
+    <div class="hero__media">
+      <div
+        class="hero__photo"
+        style="
+          --hero-photo: url('assets/menu.jpg');
+        "
+      ></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2>Il menù in schede</h2>
+      <p class="muted">Scegli la scheda e scopri le proposte dedicate.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist" aria-label="Schede del menù">
+      <button
+        type="button"
+        class="menu-tab"
+        *ngFor="let tab of menuTabs"
+        (click)="setActiveTab(tab.id)"
+        [class.is-active]="activeTab === tab.id"
+        [attr.id]="'tab-' + tab.id"
+        [attr.aria-selected]="activeTab === tab.id"
+        [attr.aria-controls]="'panel-' + tab.id"
+        role="tab"
+      >
+        {{ tab.label }}
+      </button>
+    </div>
+
+    <div class="menu-panels">
+      <ng-container *ngFor="let tab of menuTabs">
+        <article
+          class="menu-category"
+          *ngIf="activeTab === tab.id"
+          role="tabpanel"
+          [attr.id]="'panel-' + tab.id"
+          [attr.aria-labelledby]="'tab-' + tab.id"
+        >
+          <div class="menu-category__header">
+            <div>
+              <p class="label">{{ tab.label }}</p>
+              <h3>{{ tab.title }}</h3>
+            </div>
+            <span class="menu-category__count">{{ tab.dishes.length }} proposte</span>
+          </div>
+          <p class="muted">{{ tab.description }}</p>
+          <ul class="menu-category__list">
+            <li class="menu-dish" *ngFor="let dish of tab.dishes">
+              <span class="menu-dish__name">{{ dish.name }}</span>
+            </li>
+          </ul>
+        </article>
+      </ng-container>
+    </div>
+
+    <div class="menu-note card">
+      <p class="label">Menù alla carta</p>
+      <p class="muted">
+        Le proposte cambiano con le stagioni, il pescato e il mercato del borgo.
+        Chiedi il fuori carta del giorno per scoprire cosa bolle in cucina.
+      </p>
+    </div>
+  </div>
+</section>
