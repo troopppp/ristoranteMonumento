@@ -39,33 +39,94 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section signature">
   <div class="container">
     <div class="section__head">
-      <h2>Pronti ad Accoglierti Ogni Giorno, a Pranzo e a Cena!</h2>
-      <p class="muted" style="max-width: 800px; margin-top: 16px;">
-        Delizia il tuo palato con la freschezza del nostro pesce e cruditè, la succulenta carne, la pasta artigianale preparata con cura e i celebri cappelletti romagnoli, un'autentica prelibatezza della nostra tradizione gastronomica.
+      <h2>Piatti firma &amp; Cantina</h2>
+      <p class="muted" style="max-width: 820px; margin-top: 12px;">
+        Una selezione di piatti che racconta il territorio e la nostra cantina storica. Ingredienti freschissimi, pasta tirata a mano e abbinamenti pensati per accompagnare ogni portata.
       </p>
     </div>
-    <div class="card-grid card-grid--two">
-      <article class="card card--image">
-        <div class="card__image card__image--top" style="background-image: url('assets/chi_siamo.webp');"></div>
-        <div class="card__content">
-          <h3 class="card__title">Chi Siamo</h3>
-          <p class="muted">
-            L'attuale gestione del Ristorante Monumento continua con dedizione la tradizione culinaria intrapresa fin dal 1884. Rivisitiamo con passione l'eredità delle ricette storiche di mamma Nerina, garantendo un'esperienza gastronomica autentica e appagante.
-          </p>
+    <div class="signature__grid">
+      <article class="signature-card" *ngFor="let dish of signatureDishes">
+        <div class="signature-card__image" [style.backgroundImage]="'url(' + dish.image + ')'"></div>
+        <div class="signature-card__content">
+          <p class="signature-card__tag">{{ dish.tag }}</p>
+          <h3 class="signature-card__title">{{ dish.title }}</h3>
+          <p class="muted">{{ dish.description }}</p>
+          <div class="signature-card__pairing">
+            <span class="pairing__label">Abbinamento</span>
+            <span class="pairing__value">{{ dish.pairing }}</span>
+          </div>
         </div>
       </article>
-      <article class="card card--image">
-        <div class="card__image" style="background-image: url('assets/dove_siamo.webp');"></div>
-        <div class="card__content">
-          <h3 class="card__title">Dove Siamo</h3>
-          <p class="muted">
-            Concludete la vostra esperienza tra le antiche rovine di Ostia Antica con una visita da noi. Vi aspettiamo per deliziarvi con la nostra cucina dopo il vostro viaggio nel passato.
-          </p>
+    </div>
+    <div class="signature__cta">
+      <a class="btn primary" routerLink="/menu">Scopri il menù completo</a>
+      <a class="btn ghost" routerLink="/prenota">Prenota un tavolo</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section__head">
+            <h2>Pronti ad Accoglierti Ogni Giorno, a Pranzo e a Cena!</h2>
+            <p class="muted" style="max-width: 800px; margin-top: 16px;">
+                Delizia il tuo palato con la freschezza del nostro pesce e cruditè, la succulenta carne, la pasta artigianale preparata con cura e i celebri cappelletti romagnoli, un'autentica prelibatezza della nostra tradizione gastronomica.
+            </p>
         </div>
-      </article>
+        <div class="card-grid card-grid--two">
+            <article class="card card--image">
+                <div class="card__image card__image--top" style="background-image: url('assets/chi_siamo.webp');"></div>
+                <div class="card__content">
+                    <h3 class="card__title">Chi Siamo</h3>
+                    <p class="muted">
+                        L'attuale gestione del Ristorante Monumento continua con dedizione la tradizione culinaria intrapresa fin dal 1884. Rivisitiamo con passione l'eredità delle ricette storiche di mamma Nerina, garantendo un'esperienza gastronomica autentica e appagante.
+                    </p>
+                </div>
+            </article>
+            <article class="card card--image">
+                <div class="card__image" style="background-image: url('assets/dove_siamo.webp');"></div>
+                <div class="card__content">
+                    <h3 class="card__title">Dove Siamo</h3>
+                    <p class="muted">
+                        Concludete la vostra esperienza tra le antiche rovine di Ostia Antica con una visita da noi. Vi aspettiamo per deliziarvi con la nostra cucina dopo il vostro viaggio nel passato.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section reviews">
+  <div class="container">
+    <div class="section__head">
+      <h2>Dicono di noi</h2>
+    </div>
+    <div class="reviews__slider">
+      <div class="reviews__track" [style.transform]="'translateX(-' + (currentReview * 100) + '%)'">
+        <article class="review-card" *ngFor="let review of reviews">
+          <div class="review-card__meta">
+            <span class="review-card__badge">{{ review.source }}</span>
+            <span class="review-card__rating" aria-label="Valutazione recensione">{{ review.rating }}</span>
+          </div>
+          <p class="review-card__quote">"{{ review.quote }}"</p>
+          <p class="review-card__author">{{ review.author }}</p>
+          <p class="review-card__context muted">{{ review.context }}</p>
+        </article>
+      </div>
+      <div class="reviews__dots" role="tablist" aria-label="Naviga le recensioni">
+        <button
+          *ngFor="let review of reviews; let i = index"
+          type="button"
+          class="reviews__dot"
+          [class.is-active]="i === currentReview"
+          (click)="goToReview(i)"
+          [attr.aria-label]="'Vai alla recensione ' + (i + 1)"
+          [attr.aria-pressed]="i === currentReview"
+        ></button>
+      </div>
     </div>
   </div>
 </section>
