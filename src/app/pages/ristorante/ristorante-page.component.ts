@@ -27,16 +27,6 @@ export class RistorantePageComponent implements OnInit, OnDestroy {
       caption: 'Ambiente ricco di storia, rivisitazioni moderne della cucina romana fanno del Monumento il luogo ideale per i piaceri della tavola.'
     },
     {
-      image: 'assets/piatto_01.webp',
-      title: 'Moderna tradizione',
-      caption: 'Ambiente ricco di storia, rivisitazioni moderne della cucina romana fanno del Monumento il luogo ideale per i piaceri della tavola.'
-    },
-    {
-      image: 'assets/piatto_02.webp',
-      title: 'Moderna tradizione',
-      caption: 'Ambiente ricco di storia, rivisitazioni moderne della cucina romana fanno del Monumento il luogo ideale per i piaceri della tavola.'
-    },
-    {
       image: 'assets/vista_alto_borgo_02.jpeg',
       title: 'Il borgo racconta',
       caption: 'Tra il castello medievale e i resti dell\'antica Roma, il nostro ristorante è custode di sapori che attraversano il tempo.'
@@ -48,16 +38,6 @@ export class RistorantePageComponent implements OnInit, OnDestroy {
     },
     {
       image: 'assets/interno_02.webp',
-      title: 'Piacere da scoprire',
-      caption: 'Un\'atmosfera intima dove ogni portata è un viaggio tra memoria e innovazione, dall\'antipasto al dolce dello Chef pasticcere.'
-    },
-    {
-      image: 'assets/piatto_03.webp',
-      title: 'Piacere da scoprire',
-      caption: 'Un\'atmosfera intima dove ogni portata è un viaggio tra memoria e innovazione, dall\'antipasto al dolce dello Chef pasticcere.'
-    },
-    {
-      image: 'assets/piatto_04.webp',
       title: 'Piacere da scoprire',
       caption: 'Un\'atmosfera intima dove ogni portata è un viaggio tra memoria e innovazione, dall\'antipasto al dolce dello Chef pasticcere.'
     }

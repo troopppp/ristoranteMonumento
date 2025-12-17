@@ -1,52 +1,110 @@
-<section class="hero hero--soft">
-  <div class="container hero__layout">
-    <div class="hero__text">
-      <p class="eyebrow">Storia</p>
-      <h1>Dal 1884, accanto al borgo</h1>
-      <p class="lead">
-        Una locanda nata nel 1884 per chi lavorava e visitava gli scavi di Ostia Antica. Oggi è il
-        Ristorante Monumento: cucina variegata, sala con camino e memoria viva del borgo.
-      </p>
-      <div class="hero__actions">
-        <a class="btn primary" routerLink="/prenota">Prenota</a>
-        <a class="btn ghost" routerLink="/menu">Scopri il menù</a>
+<section class="video-hero">
+  <video #heroVideo class="video-hero__video" autoplay loop playsinline>
+    <source src="assets/storia_monumento.webm" type="video/webm">
+  </video>
+  <div class="video-hero__overlay"></div>
+  <div class="video-controls">
+    <button class="video-control-btn" (click)="togglePlay()" [attr.aria-label]="isPlaying ? 'Pausa' : 'Play'">
+      <span class="material-symbols-outlined">{{ isPlaying ? 'pause' : 'play_arrow' }}</span>
+    </button>
+    <button class="video-control-btn" (click)="toggleMute()" [attr.aria-label]="isMuted ? 'Attiva audio' : 'Disattiva audio'">
+      <span class="material-symbols-outlined">{{ isMuted ? 'volume_off' : 'volume_up' }}</span>
+    </button>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="storia-layout">
+      <div class="storia-images">
+        <h3>Gli scavi di Ostia Antica</h3>
+        <div class="image-grid">
+          <div *ngFor="let img of scaviAlbum; let i = index"
+               class="storia-img"
+               [style.background-image]="'url(' + img.src + ')'"
+               (click)="openLightbox(i, scaviAlbum, $event)"></div>
+        </div>
       </div>
-    </div>
-    <div class="hero__media">
-      <div
-        class="hero__photo"
-        style="
-          --hero-photo: url('assets/storia.jpg');
-        "
-      ></div>
+      <div class="storia-text">
+        <h3>La Storia</h3>
+        <p class="muted">
+          Cucina tradizionale che si perde nella notte dei tempi. E' questa la principale caratteristica del Ristorante "Monumento" ad Ostia Antica; esso, infatti, prende il nome dalla lapide "Pane e Lavoro" posta nel 1904, nei pressi della trattoria, in ricordo dei caduti nel lavoro di bonifica dell'Agro Romano a cavallo fra l'800 ed il '900.
+        </p>
+        <p class="muted">
+          Tra gli "scariolanti", giunti da Ravenna nelle campagne Romane il 25 novembre 1884, vi era anche una donna energica, Maria Gordini, che si dedicò alla cottura del pane, nonché alla nascita dei bambini (da qui il soprannome "maiuta"). A quel tempo, i braccianti combattevano quotidianamente con le paludi che, in un giorno di pioggia, potevano riprendersi ettari di terra "sottratti" dal lavoro di mesi delle pazienti braccia dei Ravennati.
+        </p>
+        <p class="muted">
+          A questi ultimi ed ai cacciatori, si dedicava un'altra donna romagnola, mamma Nerina, che trasformò in breve tempo quello che era un casale di caccia in una "cucina madre", dove perennemente era acceso il camino nel quale cuocevano tagliatelle e cacciagione per tutti gli avventori della zona.
+        </p>
+        <p class="muted">
+          La bonifica terminò nel 1910, ma sarà al termine del secondo conflitto mondiale che questa tipica trattoria diventerà una delle mete preferite dai romani per le loro gite "fuori porta". Lo stesso Federico Fellini, durante le riprese degli esterni di "Amarcord" (negli anni '60/'70 la campagna nei dintorni di Ostia Antica era, naturalmente, una riproduzione fedele di quella romagnola), veniva a sedersi in cucina per gustare i cappelletti che gli preparava Nerina, e a parlare con lei nel loro dialetto.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="card-grid">
-      <article class="card">
-        <p class="label">Origini</p>
-        <p class="muted">
-          Nel 1884 la locanda accoglieva operai e archeologi diretti al monumento di Ostia Antica.
-          Pochi tavoli, ricette di mare e campagna, camino sempre acceso.
-        </p>
-      </article>
-      <article class="card">
-        <p class="label">Evoluzione</p>
-        <p class="muted">
-          Le generazioni successive hanno portato vini del territorio, erbe di macchia e sapori
-          incontrati nei viaggi, mantenendo solide radici romane.
-        </p>
-      </article>
-      <article class="card">
-        <p class="label">Oggi</p>
-        <p class="muted">
-          Una sala che conserva arredi storici, tavoli anche all'aperto nel borgo, cucina variegata di
-          mare e terra per famiglie, gruppi ed eventi.
-        </p>
-      </article>
+    <div class="storia-layout">
+      <div class="storia-images">
+        <h3>Ostia nella Storia</h3>
+        <div class="image-grid">
+          <div *ngFor="let img of ostiaAlbum; let i = index"
+               class="storia-img"
+               [style.background-image]="'url(' + img.src + ')'"
+               (click)="openLightbox(i, ostiaAlbum, $event)"></div>
+        </div>
+      </div>
+      <div class="storia-text">
+        <h3>Chi ha mangiato da noi</h3>
+        <div class="vip-list">
+          <span class="vip-name">Benito Mussolini</span>
+          <span class="vip-name">Richard Burton</span>
+          <span class="vip-name">Elisabeth Taylor</span>
+          <span class="vip-name">Totò</span>
+          <span class="vip-name">Peppino de Filippo</span>
+          <span class="vip-name">Domenico Modugno</span>
+          <span class="vip-name">Richard Nixon</span>
+          <span class="vip-name">Jaqueline Kennedy</span>
+          <span class="vip-name">Walter Chiari</span>
+          <span class="vip-name">Anna Magnani</span>
+          <span class="vip-name">Mariangela Melato</span>
+          <span class="vip-name">Claudio Villa</span>
+          <span class="vip-name">Marcello Mastroianni</span>
+          <span class="vip-name">François Mitterand</span>
+          <span class="vip-name">Dalai Lama</span>
+          <span class="vip-name">Arnold Schwarzenegger</span>
+          <span class="vip-name">Astronauti della Mir</span>
+          <span class="vip-name">Franco e Ciccio</span>
+          <span class="vip-name">Claudia Koll</span>
+          <span class="vip-name">Federico Fellini</span>
+          <span class="vip-name">Renato Guttuso</span>
+          <span class="vip-name">Michele Placido</span>
+          <span class="vip-name">Emilio Greco</span>
+          <span class="vip-name">Nicola Piovani</span>
+          <span class="vip-name">Alberto Sordi</span>
+          <span class="vip-name">Ornella Vanoni</span>
+          <span class="vip-name">Pippo Baudo</span>
+          <span class="vip-name">Alberto Angela</span>
+          <span class="vip-name">Enrico Mentana</span>
+          <span class="vip-name">Vittorio Gassman</span>
+          <span class="vip-name">Giuseppe Saragat</span>
+          <span class="vip-name">Giovanni Malagodi</span>
+          <span class="vip-name">Pietro Germi</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<div class="lightbox-overlay" *ngIf="lightboxOpen" (click)="closeLightbox()">
+  <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
+  <button class="lightbox-prev" (click)="prevImage(); $event.stopPropagation()"></button>
+  <button class="lightbox-next" (click)="nextImage(); $event.stopPropagation()"></button>
+
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <img [src]="currentImage" [alt]="currentCaption">
+    <p class="lightbox-caption">{{ currentCaption }}</p>
+  </div>
+</div>
