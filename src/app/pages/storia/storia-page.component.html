@@ -100,11 +100,13 @@
 
 <div class="lightbox-overlay" *ngIf="lightboxOpen" (click)="closeLightbox()">
   <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
-  <button class="lightbox-prev" (click)="prevImage(); $event.stopPropagation()"></button>
-  <button class="lightbox-next" (click)="nextImage(); $event.stopPropagation()"></button>
 
   <div class="lightbox-content" (click)="$event.stopPropagation()">
-    <img [src]="currentImage" [alt]="currentCaption">
+    <div class="lightbox-frame">
+      <img [src]="currentImage" [alt]="currentCaption">
+      <button class="lightbox-prev" (click)="prevImage(); $event.stopPropagation()"></button>
+      <button class="lightbox-next" (click)="nextImage(); $event.stopPropagation()"></button>
+    </div>
     <p class="lightbox-caption">{{ currentCaption }}</p>
   </div>
 </div>

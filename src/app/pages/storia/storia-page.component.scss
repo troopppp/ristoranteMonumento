@@ -148,9 +148,17 @@
   align-items: center;
   gap: 16px;
   cursor: default;
+  position: relative;
 }
 
-.lightbox-content img {
+.lightbox-frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-frame img {
   max-width: 90vw;
   max-height: 85vh;
   object-fit: contain;
@@ -213,6 +221,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .lightbox-prev::before {
@@ -236,11 +245,11 @@
 }
 
 .lightbox-prev {
-  left: 20px;
+  left: 16px;
 }
 
 .lightbox-next {
-  right: 20px;
+  right: 16px;
 }
 
 .lightbox-prev:hover,
@@ -325,10 +334,10 @@
   }
 
   .lightbox-prev {
-    left: 10px;
+    left: 8px;
   }
 
   .lightbox-next {
-    right: 10px;
+    right: 8px;
   }
 }
